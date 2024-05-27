@@ -125,8 +125,6 @@ function creaNota() {
               editarNota(obj.id);
             },
           });
-        }else if(this.status == 500){
-            Swal.fire("El porcentaje total de las notas del estudiante supera el 100%");
         }
       };
     }
@@ -152,6 +150,8 @@ function creaNota() {
             const objects = JSON.parse(this.responseText);
             Swal.fire("La nota se actualizó correctamente :)");
             cargaNotas(id_estudiante);
+          }else if(this.status == 500){
+            Swal.fire("El porcentaje total de las notas del estudiante supera el 100%");
           }
         };
       }
